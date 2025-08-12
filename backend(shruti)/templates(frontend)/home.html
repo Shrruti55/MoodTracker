@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home - Mood Tracker</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 50px;
+        background: linear-gradient(-45deg, #ffb6c1, #87cefa, #ffb6c1, #87cefa);
+        background-size: 400% 400%;
+        animation: gradientBG 10s ease infinite;
+        color: #333;
+        overflow-x: hidden;
+        position: relative;
+    }
+    @keyframes gradientBG {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+    h2 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        animation: fadeInDown 1s ease-in-out;
+        text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    }
+    p {
+        font-size: 1.4rem;
+        margin-bottom: 30px;
+        animation: fadeIn 1.5s ease-in-out;
+    }
+    .mood-btn {
+        font-size: 2rem; 
+        padding: 15px 25px;
+        margin: 12px;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: transform 0.3s, box-shadow 0.3s;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+        animation: bounceIn 1s ease forwards;
+    }
+    .mood-btn:hover {
+        transform: scale(1.15) rotate(3deg);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+    }
+    /* Mood colors */
+    .happy { background-color: #ffeb3b; }
+    .sad { background-color: #90caf9; }
+    .emotional { background-color: #f48fb1; }
+    .neutral { background-color: #c8e6c9; }
+    .angry { background-color: #ff7043; }
+    .excited { background-color: #ffcc80; }
+    .relaxed { background-color: #80cbc4; }
+    .romantic { background-color: #ffb6c1; }
+
+    /* Animations */
+    @keyframes bounceIn {
+        0% { transform: scale(0.5); opacity: 0; }
+        60% { transform: scale(1.2); opacity: 1; }
+        100% { transform: scale(1); }
+    }
+    @keyframes fadeInDown {
+        from { opacity: 0; transform: translateY(-30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    /* Floating emoji background */
+    .floating-emoji {
+        position: fixed;
+        font-size: 3rem; /* Large background emojis */
+        opacity: 0.35;
+        animation: float 6s infinite ease-in-out, spin 8s infinite linear;
+        z-index: -1;
+    }
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-20px); }
+    }
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+</style>
+</head>
+<body>
+    <h2>Welcome, {{ username }} 👋</h2>
+    <p>How are you feeling today?</p>
+    <form action="/set_mood" method="POST">
+        <button class="mood-btn happy" name="mood" value="happy">😊 Happy</button>
+        <button class="mood-btn sad" name="mood" value="sad">😢 Sad</button>
+        <button class="mood-btn emotional" name="mood" value="emotional">🥺 Emotional</button>
+        <button class="mood-btn neutral" name="mood" value="neutral">😐 Neutral</button>
+        <button class="mood-btn angry" name="mood" value="angry">😡 Angry</button>
+        <button class="mood-btn excited" name="mood" value="excited">🤩 Excited</button>
+        <button class="mood-btn relaxed" name="mood" value="relaxed">😌 Relaxed</button>
+        <button class="mood-btn romantic" name="mood" value="romantic">💖 Romantic</button>
+    </form>
+
+    <!-- Floating emojis -->
+    <div class="floating-emoji" style="top:10%; left:5%;">😊</div>
+    <div class="floating-emoji" style="top:20%; left:80%;">😢</div>
+    <div class="floating-emoji" style="top:60%; left:20%;">🥺</div>
+    <div class="floating-emoji" style="top:80%; left:70%;">🤩</div>
+    <div class="floating-emoji" style="top:15%; left:50%;">😡</div>
+    <div class="floating-emoji" style="top:50%; left:90%;">😌</div>
+    <div class="floating-emoji" style="top:80%; left:55%;">💖</div>
+    <div class="floating-emoji" style="top:5%; left:25%;">🤗</div>
+    <div class="floating-emoji" style="top:70%; left:10%;">😎</div>
+    <div class="floating-emoji" style="top:25%; left:65%;">😂</div>
+    <div class="floating-emoji" style="top:85%; left:30%;">😍</div>
+    <div class="floating-emoji" style="top:55%; left:75%;">😴</div>
+</body>
+</html>
