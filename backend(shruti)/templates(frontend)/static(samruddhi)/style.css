@@ -1,0 +1,62 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    height: 100vh;
+    background: linear-gradient(135deg, skyblue, pink);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 30px 50px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    z-index: 2;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+.mood-btn {
+    font-size: 1.5rem;
+    margin: 10px;
+    padding: 12px 20px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.mood-btn:hover {
+    transform: scale(1.1);
+    background-color: #ff69b4;
+    color: white;
+}
+
+.emoji {
+    position: absolute;
+    font-size: 60px;
+    opacity: 0.8;
+    animation: float 8s infinite ease-in-out;
+    z-index: 1;
+}
+
+.emoji:nth-child(1) { left: 10%; top: 20%; animation-duration: 7s; }
+.emoji:nth-child(2) { left: 50%; top: 30%; animation-duration: 6s; }
+.emoji:nth-child(3) { left: 80%; top: 60%; animation-duration: 9s; }
+.emoji:nth-child(4) { left: 30%; top: 70%; animation-duration: 5s; }
+.emoji:nth-child(5) { left: 70%; top: 10%; animation-duration: 10s; }
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-40px); }
+    100% { transform: translateY(0); }
+}
